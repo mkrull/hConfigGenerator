@@ -26,6 +26,8 @@ configFromArgs _ = do
   hPutStrLn stderr "Wrong number of arguments" -- TODO better logging
   return Nothing
 
+-- provide the raw string to create a template and the json values
+-- as lazy bytestring
 generateConfig :: String -> LBS.ByteString -> Maybe String
 generateConfig tpl jsonv = do
   case decode jsonv of
