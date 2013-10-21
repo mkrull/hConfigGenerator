@@ -7,12 +7,13 @@ generate files from stringtemplates and json variables in haskell
 
 ## Compile
 
-Until a cabal file is added run
+to compile run
 
-> ghc configGenerator
-
-with will of course fail if the dependencies are missing.. which are some. To list them here is pointless as I could just create a cabal file with much the same effort.
-
+    cabal configure
+    cabal build
+    
 ## Run
 
-./configGenerator templates/test.st templates/test.json
+run the executable with
+
+    dist/build/configGenerator/configGenerator templates/test.st templates/test.json
