@@ -3,8 +3,6 @@ hConfigGenerator
 
 generate files from stringtemplates and json variables in haskell
 
-## TODO cabal file
-
 ## Compile
 
 to compile run
