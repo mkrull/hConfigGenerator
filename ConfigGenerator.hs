@@ -8,7 +8,7 @@ import qualified Geckofinger.StringTemplate as ST
 main :: IO ()
 main = do
   args <- getArgs
-  config <- ST.mergeSourceFiles args
+  config <- ST.mergeSourceFiles $ args ++ ["angle"]
   case config of
     Just c -> success c
     Nothing -> failure "Failed to generate config"
