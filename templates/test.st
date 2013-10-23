@@ -1,1 +1,1 @@
-This is the story of a <profession> named <name>
+This is the story of a $profession$ named $name$

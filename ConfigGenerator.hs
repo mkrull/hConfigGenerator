@@ -8,7 +8,7 @@ import qualified Geckofinger.StringTemplate as ST
 main :: IO ()
 main = do
   args <- getArgs
-  config <- ST.mergeSourceFiles $ args ++ ["angle"]
+  config <- ST.mergeSourceFiles $ templateArgs args
   case config of
     Just c -> success c
     Nothing -> failure "Failed to generate config"
@@ -21,3 +21,7 @@ main = do
     failure s = do
       hPutStrLn stderr s
       exitFailure
+
+templateArgs :: [String] -> (String, String, Bool)
+templateArgs (tpl:json:"angle":_) = (tpl, json, True)
+templateArgs (tpl:json:_) = (tpl, json, False)
