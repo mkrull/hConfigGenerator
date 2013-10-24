@@ -50,11 +50,6 @@ main = do
       hPutStrLn stderr s
       exitFailure
 
-templateArgs :: [String] -> (String, String, Bool)
-templateArgs (tpl:json:"angle":_) = (tpl, json, True)
-templateArgs (tpl:json:_) = (tpl, json, False)
-templateArgs (tpl:_) = (tpl ++ ".st", tpl ++ ".json", False)
-
 tupleifyOpts :: [Flag] -> Maybe (String, String, Bool)
 tupleifyOpts (TemplateFile t:JSONFile j:[]) = Just (t, j, False)
 tupleifyOpts (TemplateFile t:JSONFile j:AngleTemplate:[]) = Just (t, j, True)
