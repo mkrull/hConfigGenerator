@@ -18,7 +18,7 @@ mergeSourceFiles (tpl, vars, kind) = do
     Nothing -> return Nothing
     Just t -> case values of
         Nothing -> return Nothing
-        Just v -> return$ mergeSourceStrings t v kind
+        Just v -> return $ mergeSourceStrings t v kind
 -- wrong number of arguments
 mergeSourceFiles _ = return Nothing
 
