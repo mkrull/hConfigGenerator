@@ -14,4 +14,5 @@ to compile run
 
 run the executable with
 
-    dist/build/configGenerator/configGenerator templates/test.st templates/test.json
+    dist/build/configGenerator/configGenerator -t templates/test.st -j templates/test.json
+    dist/build/configGenerator/configGenerator -t templates/test_angle.st -j templates/test.json -a
