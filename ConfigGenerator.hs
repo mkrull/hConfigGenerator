@@ -4,10 +4,11 @@ import System.IO (stderr, hPutStrLn)
 import System.Exit (exitSuccess, exitFailure)
 import System.Environment (getArgs, getProgName)
 import System.Console.GetOpt
+import Data.List
 import qualified Geckofinger.StringTemplate as ST
 
 data Flag = TemplateFile String | JSONFile String | AngleTemplate
-                                      deriving Show
+                                      deriving (Show, Eq, Ord)
 
 options :: [OptDescr Flag]
 options = [
@@ -33,7 +34,7 @@ main = do
   args <- getArgs
   name <- getProgName
   opts <- parseArgs args name
-  case tupleifyOpts $ fst opts of
+  case tupleifyOpts $ sort $ fst opts of
     Just o -> do
         config <- ST.mergeSourceFiles o
         case config of
