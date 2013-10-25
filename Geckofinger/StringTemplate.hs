@@ -11,22 +11,22 @@ import Geckofinger.FileIO (safeReadFile, safeReadFileLBS)
 
 mergeSourceFiles :: (String, String, Bool) -> IO (Maybe String)
 -- at least two arguments needed
-mergeSourceFiles (tpl, vars, kind) = do
+mergeSourceFiles (tpl, vars, angle) = do
   template <- safeReadFile tpl
   values <- safeReadFileLBS vars
   case template of
     Nothing -> return Nothing
     Just t -> case values of
         Nothing -> return Nothing
-        Just v -> return $ mergeSourceStrings t v kind
+        Just v -> return $ mergeSourceStrings t v angle
 -- wrong number of arguments
 mergeSourceFiles _ = return Nothing
 
 -- provide the raw string to create a template and the json values
 -- as lazy bytestring
 mergeSourceStrings :: String -> LBS.ByteString -> Bool -> Maybe String
-mergeSourceStrings tpl jsonv kind = case decode jsonv of
-    Just v -> return $ renderWithValues (assocs v) (newTpl kind tpl)
+mergeSourceStrings tpl jsonv angle = case decode jsonv of
+    Just v -> return $ renderWithValues (assocs v) (newTpl angle tpl)
     Nothing -> Nothing -- TODO log something
   where
     newTpl :: Bool -> String -> StringTemplate String
