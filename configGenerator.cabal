@@ -10,6 +10,8 @@ Build-Depends:       base,
                      bytestring == 0.9.2.1,
                      containers == 0.4.2.1,
                      aeson >= 0.6,
-                     HStringTemplate == 0.7.1
+                     HStringTemplate == 0.7.1,
+                     gf-template >= 0.1
+Build-Type:          Simple
 Executable:          configGenerator
 Main-is:             ConfigGenerator.hs

@@ -5,7 +5,7 @@ import System.Exit (exitSuccess, exitFailure)
 import System.Environment (getArgs, getProgName)
 import System.Console.GetOpt
 import Data.List
-import qualified Geckofinger.StringTemplate as ST
+import qualified GeckoFinger.StringTemplate as ST
 
 -- flag datatype
 -- derive Eq and Ord to sort command line arguments
